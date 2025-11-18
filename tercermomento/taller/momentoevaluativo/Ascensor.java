@@ -9,6 +9,7 @@ public class Ascensor {
     private Boton botonAbrir;
     private Boton botonCerrar;
     private Boton botonEmergencia;
+    private Boton botonDestino;
 
     public Ascensor (int totalPisos){
         this.totalPisos = totalPisos;
@@ -21,6 +22,7 @@ public class Ascensor {
         this.botonAbrir = new botonAbrir(1);
         this.botonCerrar = new botonCerrar(2);
         this.botonEmergencia = new botonEmergencia(3);
+        this.botonDestino = new botonDestino(4, this);
     }
     //getters
     public int getPisoActual(){
@@ -54,6 +56,10 @@ public class Ascensor {
         }
             return false;
         }
+
+        //corrigiendo los metodos para que suene y se ilumine
+        
+        botonDestino.presionar();
         
         pisoDestino = piso;
         System.out.println("Destino seleccionado: piso " + pisoDestino);

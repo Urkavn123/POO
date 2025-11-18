@@ -21,7 +21,7 @@ public abstract  class Boton {
 
     public void iluminar(){
         iluminado = true;
-        System.out.println("¡Boton " + nombre + "iluminado!");
+        System.out.println("🔆");
     }
 
     public void apagar(){

@@ -37,6 +37,7 @@ public class ejecutarAscensor {
                     int pisoLlamada = sc.nextInt();
                     System.out.println("1=Subir 2=Bajar : ");
                     int dd = sc.nextInt();
+                    
                     Direction dir = (dd == 1) ? Direction.UP : Direction.DOWN;
                     // simular falla de botón si está activada
                     if (fallasActivadas && rnd.nextInt(100) < 40) {

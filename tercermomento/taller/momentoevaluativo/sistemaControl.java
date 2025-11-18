@@ -39,6 +39,8 @@ public class sistemaControl {
 
         ascensor.asignarDestino(piso);
 
+        
+
         while (ascensor.getPisoDestino() != -1 && ascensor.getEstado() != estadoAscensor.EMERGENCIA) {
             ascensor.mover();
         }
