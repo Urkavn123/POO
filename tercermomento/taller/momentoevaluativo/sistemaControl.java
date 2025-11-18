@@ -20,7 +20,7 @@ public class sistemaControl {
     public void registrarSolicitudPiso(int piso, Direction direccion) {
 
         if (piso < 1 || piso > totalPisos) {
-            System.out.println("❌ Piso inválido. Solo existen pisos del 1 al " + totalPisos);
+            System.out.println(" Piso inválido. Solo existen pisos del 1 al " + totalPisos);
             return;
         }
 

@@ -40,6 +40,9 @@ public class Ascensor {
     public Puerta puerta(){
         return puerta;
     }
+    public Boton GetBotonDestino(){
+        return botonDestino;
+    }
 
     //asigancion del destino
     public boolean asignarDestino(int piso){
@@ -57,9 +60,6 @@ public class Ascensor {
             return false;
         }
 
-        //corrigiendo los metodos para que suene y se ilumine
-        
-        botonDestino.presionar();
         
         pisoDestino = piso;
         System.out.println("Destino seleccionado: piso " + pisoDestino);

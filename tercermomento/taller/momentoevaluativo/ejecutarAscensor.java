@@ -32,19 +32,64 @@ public class ejecutarAscensor {
                 System.out.print("Opción: ");
                 int op = sc.nextInt();
                 switch (op) {
-                    case 1:
+                    case 1: 
+                    /*
+                     * corregi el case 1 debido a que no estaba haciendo las cosas que se supone que debia hacer
+                     * no tenia la funcion presionar()
+                     * ni los limites para que no llame desde un piso que no existe
+                     * ni que aparezcan botones de subir o bajar en caso de que este en los pisos limites correspondientes
+                     */
                     System.out.print("¿Desde qué piso llama? ");
                     int pisoLlamada = sc.nextInt();
-                    System.out.println("1=Subir 2=Bajar : ");
-                    int dd = sc.nextInt();
-                    
-                    Direction dir = (dd == 1) ? Direction.UP : Direction.DOWN;
-                    // simular falla de botón si está activada
-                    if (fallasActivadas && rnd.nextInt(100) < 40) {
-                        System.out.println(" Fallo: el botón no respondió. jaja");
-                    } else {
-                        sistema.registrarSolicitudPiso(pisoLlamada, dir);
+
+                    if (pisoLlamada < 1 || pisoLlamada > cantidadPisos){
+                        break;
                     }
+
+                    if (pisoLlamada == 1){
+                        System.out.println("1 = ↑");
+                        int opcionDireccion = sc.nextInt();
+
+                        if (opcionDireccion == 1){
+                            if (fallasActivadas && rnd.nextInt(100) < 40){ //40% de probabilidad de error
+                                System.out.println("FALLO: EL BOTON FALLO MALA SUERTE");
+                            }else {
+                                sistema.getPiso(pisoLlamada).getBotonSubir().presionar();
+                            }
+
+                        }
+                    }
+
+                    else if (pisoLlamada == cantidadPisos){
+                        System.out.println("2 = ￬");
+                        int opcionDireccion = sc.nextInt();
+
+                        if (opcionDireccion == 2){
+                            if (fallasActivadas && rnd.nextInt(100) < 40){ //40% de probabilidad de error
+                                System.out.println("FALLO: EL BOTON FALLO MALA SUERTE");
+                            }else {
+                                sistema.getPiso(pisoLlamada).getBotonBajar().presionar();
+                            }
+
+                        }
+                    }
+
+                    else {
+                        System.out.println("1 = ↑   2 = ￬");
+                        int opcionDireccion = sc.nextInt();
+
+                        if (fallasActivadas && rnd.nextInt(100) < 40){ //40% de probabilidad de error
+                                System.out.println("FALLO: EL BOTON FALLO MALA SUERTE");
+                                break;
+                            }
+                            if (opcionDireccion == 1){
+                        sistema.getPiso(pisoLlamada).getBotonSubir().presionar();
+                    } 
+                    else if (opcionDireccion == 2){
+                        sistema.getPiso(pisoLlamada).getBotonBajar().presionar();
+                    }
+                }
+            
                     break;
 
                     case 2:
@@ -85,8 +130,12 @@ public class ejecutarAscensor {
                 
                 switch (op) {
                     case 1:
-                    System.out.print("Ingrese piso destino: ");
+                    System.out.print("¿A que piso desea ir?:  ");
                     int destino = sc.nextInt();
+
+                    ((botonDestino) ascensor.GetBotonDestino()).setDestino(destino);
+                    ascensor.GetBotonDestino().presionar();
+
                     // simular falla
                     if (fallasActivadas && rnd.nextInt(100) < 40) {
                         System.out.println(" Fallo: el botón no respondió. jeje ");
