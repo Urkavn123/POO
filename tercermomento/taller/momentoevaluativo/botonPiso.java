@@ -17,7 +17,6 @@ public class botonPiso extends Boton {
 
     @Override
     public void accion(){
-        System.out.println("📢 Solicitud desde piso " + piso + " para ir " + direccion + ".");
         sistema.registrarSolicitudPiso(piso, direccion);
     }
 

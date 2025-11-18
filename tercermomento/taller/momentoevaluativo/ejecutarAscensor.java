@@ -43,6 +43,7 @@ public class ejecutarAscensor {
                     int pisoLlamada = sc.nextInt();
 
                     if (pisoLlamada < 1 || pisoLlamada > cantidadPisos){
+                        System.out.println("piso invalido");
                         break;
                     }
 
@@ -154,14 +155,26 @@ public class ejecutarAscensor {
                 break;
                 
                 case 2:
+                if (fallasActivadas && rnd.nextInt(100) < 40) {
+                    System.out.println(" Fallo en el botón de abrir");
+                    break;
+                }
                 ascensor.presionarAbrir();
                 break;
                 
                 case 3:
+                if (fallasActivadas && rnd.nextInt(100) < 40) {
+                    System.out.println(" Fallo en el botón de abrir");
+                    break;
+                }
                 ascensor.presionarCerrar();
                 break;
                 
                 case 4:
+                if (fallasActivadas && rnd.nextInt(100) < 40) {
+                    System.out.println(" Fallo en el botón de abrir");
+                    break;
+                }
                 ascensor.presionarEmergencia();
                 break;
 

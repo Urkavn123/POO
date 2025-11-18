@@ -18,4 +18,4 @@ public class botonDestino extends Boton {
         ascensor.asignarDestino(pisoDestino);
     }
      
-}
+} //tuve que crear una clase para que funciene presionar() cuando se escoge un destino
